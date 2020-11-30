@@ -4,11 +4,20 @@
  	<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
  	<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
  </head>
+  
+  <script>
+    AFRAME.registerComponent('clickhandler', {
+        init: function() {
+            this.el.addEventListener('click', () => {
+                alert('Clicked!')
+            });
+    }});
+</script>
  
  <body style='margin:0px; overflow:hidden;'>
  	<a-scene embedded arjs>
      	<a-marker preset="hiro">  
-     		<a-text value="Light ON" position="0 0 10" align="center" lotation="-90 0 0"></a-text>
+     		<a-text clickhandler value="Light ON" position="0 0 10" align="center" lotation="-90 0 0"></a-text>
      	</a-marker>
       
       	<a-entity camera></a-entity>
